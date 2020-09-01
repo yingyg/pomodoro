@@ -9,63 +9,42 @@
 }
 
 h1 {
-  background: linear-gradient(170deg, black 45%, grey 45%);
+  background: linear-gradient(170deg, green 45%, black 45%);
   background-clip: text;
   color: transparent;
 }
 .top {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border: 5px solid black;
+  margin: 140px auto 100px;
+  border-radius: 50%;
+  background: url("./mickey02.png") bottom no-repeat;
+}
+.bottom {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: auto;
 }
-.top-left,
-.top-right {
+.bottom-left,
+.bottom-right {
   width: 350px;
 }
-.bottom {
-  position: relative;
-  width: 250px;
-  height: 250px;
-  margin: 120px auto 100px;
-  border-radius: 50%;
-  background-color: grey;
-  box-shadow: 0px 5px 5px 1px;
-}
 
-.btn-box {
-  margin: 20px 0 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.plus,
-.minus {
-  display: block;
-  width: 50px;
-  height: 50px;
-  background-color: black;
-  padding: 10px;
-  border-radius: 50%;
-  color: white;
-}
-.length {
-  display: block;
-  background-color: grey;
-  width: 60px;
-  border-radius: 5px;
-  font-weight: bold;
-  padding: 7px 10px;
-}
 .title {
-  padding: 40px;
+  padding: 30px 0 10px;
 }
-
+.timer {
+  font-size: 2.2rem;
+  font-family: "Orbitron", sans-serif;
+}
 .start-pause,
 .refresh {
   position: absolute;
   font-size: 1.4rem;
-  padding: 30px;
+  padding: 35px 30px;
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -74,13 +53,14 @@ h1 {
   transition: 0.5s;
 }
 .refresh {
-  padding: 40px;
+  font-size: 1.6rem;
+  padding: 35px;
   top: -75px;
   left: 160px;
 }
 .start-pause {
   top: -75px;
-  left: -10px;
+  left: -15px;
 }
 .start-pause:hover,
 .refresh:hover {
@@ -88,8 +68,37 @@ h1 {
   transform: scale(1.2);
 }
 
+.plus,
+.minus {
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  padding: 10px;
+  border-radius: 3px;
+  color: white;
+}
+.length {
+  font-family: "Orbitron", sans-serif;
+  font-weight: bold;
+  color: green;
+  display: inline-block;
+  width: 80px;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 7px 10px;
+}
+
 .plus:hover,
 .minus:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+@media only screen and (max-width: 650px) {
+  h1 {
+    font-size: 3rem;
+  }
+  .break-title,
+  .session-title {
+    font-size: 2rem;
+  }
 }

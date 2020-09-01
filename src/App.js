@@ -58,24 +58,34 @@ class App extends React.Component {
   countDown() {
     if (this.state.isSession) {
       if (this.state.sessionInSeconds === 0) {
-        this.playAudio();
+        
         this.setState({
           sessionInSeconds: this.state.sessionInMinutes * 60,
           isSession: !this.state.isSession,
         });
-      } else {
+      } else if(this.state.sessionInSeconds ===1){
+        this.setState({
+          sessionInSeconds: this.state.sessionInSeconds - 1,
+        });
+        this.playAudio();
+      }else {
         this.setState({
           sessionInSeconds: this.state.sessionInSeconds - 1,
         });
       }
     } else {
       if (this.state.breakInSeconds === 0) {
-        this.playAudio();
+        
         this.setState({
           breakInSeconds: this.state.breakInMinutes * 60,
           isSession: !this.state.isSession,
         });
-      } else {
+      } else if(this.state.breakInSeconds === 1){
+        this.setState({
+          breakInSeconds: this.state.breakInSeconds - 1,
+        });
+        this.playAudio();
+      }else {
         this.setState({
           breakInSeconds: this.state.breakInSeconds - 1,
         });
@@ -126,7 +136,7 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <div className="container">
+        <div >
           <h1>Pomodoro Clock</h1>
 
           <Counter
@@ -141,7 +151,7 @@ class App extends React.Component {
             }
           />
 
-          <div className="top">
+          <div className="bottom">
             <Break
               plus={this.handleBreakPlus.bind(this)}
               minus={this.handleBreakMinus.bind(this)}
